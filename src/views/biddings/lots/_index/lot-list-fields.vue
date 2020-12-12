@@ -28,7 +28,7 @@
     i {
       padding: 5px;
       width: 22px;
-      background-color: $cerulean;
+      background-color: $primary-color;
       border-radius: 100%;
       color: white;
 

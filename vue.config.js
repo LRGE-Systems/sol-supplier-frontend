@@ -118,5 +118,6 @@ module.exports = {
 
   pluginOptions: {
     cordovaPath: '.'
-  }
+  },
+
 };

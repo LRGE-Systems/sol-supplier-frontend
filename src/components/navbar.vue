@@ -3,7 +3,7 @@
   .navbar {
     width: 100%;
     height: 56px;
-    background: linear-gradient(rgb(84, 124, 137), rgb(59, 91, 111));
+    background-color: $primary-color;
   }
 
   .navbar-menu {
