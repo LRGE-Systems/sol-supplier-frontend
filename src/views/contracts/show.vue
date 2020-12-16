@@ -52,35 +52,35 @@
         span.badge(:class="contract.status")
           | {{ $t('models.contract.attributes.statuses.' + contract.status) }}
 
-      .row.mt-1(v-if="contract.contract_pdf")
-        a.button(:href="contractPath", target="_blank")
-          | {{ $t('.general.button.download') }}
+      //- .row.mt-1(v-if="contract.contract_pdf")
+      //-   a.button(:href="contractPath", target="_blank")
+      //-     | {{ $t('.general.button.download') }}
 
-    .card.mt-2
-      h5 {{ $t('.signatures.title') }}
+    //- .card.mt-2
+    //-   h5 {{ $t('.signatures.title') }}
 
-      .row
-        label {{ $t('models.contract.attributes.supplierSignedAt') }}
+    //-   .row
+    //-     label {{ $t('models.contract.attributes.supplierSignedAt') }}
 
-        template(v-if="canSign")
-          .text-center(v-if="contract.status != 'signed'")
-            .button.button-primary.mr-1(@click="signDialog")
-              template(v-if="signning")
-                i.fa.fa-spinner.fa-spin
-              template(v-else)
-                | {{ $t('.button.sign') }}
+    //-     template(v-if="canSign")
+    //-       .text-center(v-if="contract.status != 'signed'")
+    //-         .button.button-primary.mr-1(@click="signDialog")
+    //-           template(v-if="signning")
+    //-             i.fa.fa-spinner.fa-spin
+    //-           template(v-else)
+    //-             | {{ $t('.button.sign') }}
 
-            .button.button-danger(v-if="!signning", @click="showRefuseOverlay = true")
-              | {{ $t('.button.refuse') }}
+    //-         .button.button-danger(v-if="!signning", @click="showRefuseOverlay = true")
+    //-           | {{ $t('.button.refuse') }}
 
-        template(v-else-if="contract.refused_by_class == 'supplier'")
-          span {{ $t('.refused.at', { value: contract.refused_by_at }) }}
-        template(v-else)
-          span {{ contract.supplier_signed_at || $t('.signatures.waiting') }}
+    //-     template(v-else-if="contract.refused_by_class == 'supplier'")
+    //-       span {{ $t('.refused.at', { value: contract.refused_by_at }) }}
+    //-     template(v-else)
+    //-       span {{ contract.supplier_signed_at || $t('.signatures.waiting') }}
 
-      .row
-        label {{ $t('models.contract.attributes.userSignedAt') }}
-        span {{ contract.user_signed_at || $t('.signatures.waiting') }}
+    //-   .row
+    //-     label {{ $t('models.contract.attributes.userSignedAt') }}
+    //-     span {{ contract.user_signed_at || $t('.signatures.waiting') }}
 
     overlay-wnd(v-if="showRefuseOverlay", @close="showRefuseOverlay = false")
       .container
