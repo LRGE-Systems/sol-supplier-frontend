@@ -16,8 +16,8 @@ pt-BR:
         startDate: Data de início
         closingDate: Data de encerramento
         openingDate: Data de abertura
-        covenantId: Convênio
-        covenant: Convênio
+        covenantId: Projeto
+        covenant: Projeto
         address: Local de entrega
         cooperative: Associação
 
@@ -49,7 +49,7 @@ pt-BR:
 
       errors:
         covenant:
-          missing: Convênio não pode ficar em branco
+          missing: Projeto não pode ficar em branco
         title:
           missing: Título não pode ficar em branco
         description:
