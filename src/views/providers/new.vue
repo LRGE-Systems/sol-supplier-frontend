@@ -285,6 +285,7 @@
               name="provider_document",
               :label="documentLabel",
               :mask="providerMask"
+              
             )
 
             .alert.alert-info(v-if="alreadyInUse")
@@ -359,12 +360,15 @@
       },
 
       canFind() {
+        this.provider_document 
         let type = this.provider_type
         let documentSize = this.provider_document && this.provider_document.length
 
         if(type == 'Individual') return documentSize == 14
         return documentSize == 18
       },
+
+      
 
       documentLabel() {
         let type = this.provider_type
@@ -426,12 +430,30 @@
               this.provider = {}
               this.provider.document = this.provider_document
               this.provider.type = this.provider_type
+              this.loadDocInfo();
             }
           }).catch((_err) => {
             this.provider = null
             this.error = _err
             console.error(_err)
           })
+      },
+      loadDocInfo() {
+        let self = this;
+        this.$http.get('/cpf_cnpj/'+this.provider_document.replaceAll('-','').replaceAll('/','').replaceAll('.',''))
+          .then((response) => {
+            self.provider.name = response.data.entidade.nome;
+            this.$forceUpdate();
+          }).catch((_err) => {
+            // this.provider = null
+            // this.error = _err
+            // console.error(_err)
+          })
+        // let type = this.provider_type
+        // let documentSize = this.provider_document && this.provider_document.length
+
+        // if(type == 'Individual') return documentSize == 14
+        // return documentSize == 18
       },
 
       catchErrors(err) {
