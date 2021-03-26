@@ -47,10 +47,10 @@
         span
           | {{ $asCurrency(parseFloat(contract.price_total || 0)) }}
 
-      .row
-        label {{ $t('models.contract.attributes.status') }}
-        span.badge(:class="contract.status")
-          | {{ $t('models.contract.attributes.statuses.' + contract.status) }}
+      //- .row
+      //-   label {{ $t('models.contract.attributes.status') }}
+      //-   span.badge(:class="contract.status")
+      //-     | {{ $t('models.contract.attributes.statuses.' + contract.status) }}
 
       //- .row.mt-1(v-if="contract.contract_pdf")
       //-   a.button(:href="contractPath", target="_blank")

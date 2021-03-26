@@ -9,12 +9,12 @@ pt-BR:
         title: Número
         description: Descrição (Objeto)
         kind: Tipo de licitação
-        modality: Modalidade
+        modality: Abrangência da disputa
         status: Situação
         deadline: Prazo para entrega/execução (dias)
         link: URL adicional
-        startDate: Data de início
-        closingDate: Data de encerramento
+        startDate: Recebimento de proposta
+        closingDate: Encerramento de proposta
         openingDate: Data de abertura
         covenantId: Projeto
         covenant: Projeto
@@ -57,8 +57,8 @@ pt-BR:
         kind:
           missing: Tipo de licitação não pode ficar em branco
         start_date:
-          missing: Data de início não pode ficar em branco
+          missing: Recebimento de proposta não pode ficar em branco
         closing_date:
-          missing: Data de encerramento não pode ficar em branco
+          missing: Encerramento de proposta não pode ficar em branco
         opening_date:
           missing: Data de abertura não pode ficar em branco

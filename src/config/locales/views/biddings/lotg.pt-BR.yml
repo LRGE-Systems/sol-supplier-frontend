@@ -54,7 +54,7 @@ pt-BR:
           status:
             abandoned: Proposta excluída. Não é possível enviar uma nova proposta.
             sent: Proposta enviada. Qualquer atualização nas propostas dos lotes irá atualizar a proposta.
-            sent_and_closed_invite: 'Proposta enviada. Não é possível editar a proposta em licitações de modalidade "Convite fechado".'
+            sent_and_closed_invite: 'Proposta enviada. Não é possível editar a proposta em licitações de abrangência da disputa "Convite fechado".'
             not_sent: Proposta não enviada. Preencha todos os lotes para poder enviar a proposta.
             importing: ' Importação de proposta em andamento...'
             draw: 'Proposta empatada. Você poderá atualizar a sua proposta até o dia %{day}. Qualquer atualização nas propostas dos lotes irá atualizar a proposta.'
