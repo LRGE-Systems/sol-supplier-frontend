@@ -13,6 +13,7 @@
         cpf: Informar el CPF
         cnpj: Informar el CNPJ
         document: Documento
+        select_organization: Seleccione la organización para unirse
 
       errors:
         at_least_one_classification: Es obligatorio informar al menos una clasificación y/o segmento.

@@ -287,6 +287,13 @@
               :mask="providerMask"
             )
 
+            select-field(
+              v-model="organization_id",
+              name="organization_id",
+              :options="organizations",
+              :label="this.$t('.labels.select_organization')",
+            )
+
             .alert.alert-info(v-if="alreadyInUse")
               | {{ this.$t('.notifications.already_in_use') }}
 
@@ -332,6 +339,10 @@
         nextAttachmentId: 0,
 
         // form
+        organization_id:null,
+        organizations:[
+
+        ],
         provider: null,
         provider_document: '',
         provider_type: null,
@@ -362,8 +373,8 @@
         let type = this.provider_type
         let documentSize = this.provider_document && this.provider_document.length
 
-        if(type == 'Individual') return documentSize == 14
-        return documentSize == 18
+        if(type == 'Individual') return documentSize == 14 && this.organization_id
+        return documentSize == 18 && this.organization_id
       },
 
       documentLabel() {
@@ -407,31 +418,42 @@
     },
 
     methods: {
+      getOrganizations(){
+        let params = { search: { term: "" } }
+
+        this.$http.get('/search/organizations', { params: params }).then((resp)=>{
+          this.organizations = resp.data.map((e)=>({id: e.id, text: e.text}));
+        });
+      },
       findProvider() {
-        let params = { search: { term: this.provider_document } }
-
-        this.alreadyInUse = false
-
-        this.$http.get('/search/register/providers', { params: params })
-          .then((response) => {
-            if(response.status == 204) {
-              this.alreadyInUse = true
-            } else if(_.isPresent(response.data)) {
-              this.provider = response.data
-              this.address = this.provider.address || {}
-              this.legal_representative = this.provider.legal_representative || {}
-              this.legal_representative_address = this.provider.legal_representative.address || {}
-              this.classifications = this.provider.provider_classifications || []
-            } else {
-              this.provider = {}
-              this.provider.document = this.provider_document
-              this.provider.type = this.provider_type
-            }
-          }).catch((_err) => {
-            this.provider = null
-            this.error = _err
-            console.error(_err)
-          })
+        if(!this.organization_id){
+          // this.error = this.$t('.labels.select_organization');
+        }else{
+          let params = { search: { term: this.provider_document } }
+  
+          this.alreadyInUse = false
+  
+          this.$http.get('/search/register/providers', { params: params })
+            .then((response) => {
+              if(response.status == 204) {
+                this.alreadyInUse = true
+              } else if(_.isPresent(response.data)) {
+                this.provider = response.data
+                this.address = this.provider.address || {}
+                this.legal_representative = this.provider.legal_representative || {}
+                this.legal_representative_address = this.provider.legal_representative.address || {}
+                this.classifications = this.provider.provider_classifications || []
+              } else {
+                this.provider = {}
+                this.provider.document = this.provider_document
+                this.provider.type = this.provider_type
+              }
+            }).catch((_err) => {
+              this.provider = null
+              this.error = _err
+              console.error(_err)
+            })
+        }
       },
 
       catchErrors(err) {
@@ -454,6 +476,8 @@
 
       submit() {
         const formData = new FormData(this.$refs.form)
+        formData.append('organization_id', this.organization_id);
+        console.log(formData);
         this.submitting = true
 
         if(this.provider.id) {
@@ -577,6 +601,7 @@
 
     mounted: function() {
       this.getClassifications()
+      this.getOrganizations()
     },
   }
 

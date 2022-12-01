@@ -13,6 +13,8 @@
         cpf: Informez le CPF
         cnpj: Informez le CNPJ
         document: Document
+        select_organization: Sélectionnez l'organisation à rejoindre
+
 
       errors:
         at_least_one_classification: Il faut informer au moins une classe ou un segment.

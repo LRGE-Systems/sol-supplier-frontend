@@ -13,6 +13,7 @@
         cpf: Inform the CPF
         cnpj: Inform the CNPJ
         document: Document
+        select_organization: Select organization to join
 
       errors:
         at_least_one_classification: It is mandatory to inform at least one classification and/or segment.
