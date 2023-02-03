@@ -13,7 +13,7 @@
         cpf: Informez le CPF
         cnpj: Informez le CNPJ
         document: Document
-        select_organization: Sélectionnez l'organisation à rejoindre
+        select_organization: Sélectionnez le projet à saisir
 
 
       errors:

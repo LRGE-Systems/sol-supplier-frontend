@@ -10,10 +10,10 @@
 
       labels:
         provider_type: Type of profile (Individual/Corporation)
-        cpf: Inform the CPF
-        cnpj: Inform the CNPJ
+        cpf: Inform the SSN
+        cnpj: Inform the EIN
         document: Document
-        select_organization: Select organization to join
+        select_organization: Select the project to enter
 
       errors:
         at_least_one_classification: It is mandatory to inform at least one classification and/or segment.

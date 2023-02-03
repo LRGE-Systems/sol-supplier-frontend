@@ -13,7 +13,7 @@ pt-BR:
         cpf: Informe o CPF
         cnpj: Informe o CNPJ
         document: Documento
-        select_organization: Selecione organização para entrar
+        select_organization: Selecione o projeto para entrar
 
       errors:
         at_least_one_classification: É obrigatório informar pelo menos uma classificação e/ou segmento.

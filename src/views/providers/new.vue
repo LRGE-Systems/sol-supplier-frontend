@@ -127,7 +127,6 @@
             name="provider[legal_representative_attributes][cpf]",
             require=true,
             :error="errorsLegalRepresentative['legal_representative.cpf']",
-            mask="000.000.000-00",
           )
 
           input-field(
@@ -174,11 +173,9 @@
           input-field(
             name="provider[suppliers_attributes][][cpf]",
             type="text",
-            placeholder="000.000.000-00",
             model="supplier",
             v-model="supplier.cpf",
             require=true,
-            mask="000.000.000-00",
             :error="errorsSupplier['suppliers.cpf']"
           )
 
@@ -284,7 +281,6 @@
               v-model="provider_document",
               name="provider_document",
               :label="documentLabel",
-              :mask="providerMask"
             )
 
             select-field(
@@ -373,8 +369,8 @@
         let type = this.provider_type
         let documentSize = this.provider_document && this.provider_document.length
 
-        if(type == 'Individual') return documentSize == 14 && this.organization_id
-        return documentSize == 18 && this.organization_id
+        if(type == 'Individual') return documentSize >0 && this.organization_id
+        return documentSize >0 && this.organization_id
       },
 
       documentLabel() {
