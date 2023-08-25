@@ -2,6 +2,9 @@
   app: 'sdc-cooperative-frontend.vue'
   title: 'SOL - Fournisseurs'
 
+  manual: Manuel
+  manual_link: https://www.sol-app.net/s/FR-Manuel-dUtilisation-de-lApplication-Fournisseur.pdf
+
   button:
     search: Chercher
     searching: Recherche

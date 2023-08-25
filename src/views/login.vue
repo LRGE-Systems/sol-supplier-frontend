@@ -105,9 +105,12 @@
           router-link.router-link(:to="{ name: 'terms' }")
             i {{ $t('.terms_instructions') }}
 
-    router-link.text-center.router-link.bottom-button.u-full-width(:to="{ name: 'newProvider' }")
-      | {{ $t('.button.new') }}
-      i.fa.fa-chevron-right.ml-1
+    div.text-center.router-link.bottom-button.u-full-width()
+      a(:href="$t('manual_link')", target="_blank")
+          | {{ $t('manual') }} | 
+      router-link(:to="{ name: 'newProvider' }")
+        | {{ $t('.button.new') }}
+        i.fa.fa-chevron-right.ml-1
 
     overlay-wnd(v-if="passwordOverlay", @close="passwordOverlay = false")
       .container
@@ -132,6 +135,7 @@
 
     overlay-notification(v-if="showSuccessOverlay", :showOverlay="showSuccessOverlay", :text='$t(".notifications.password.success")', topClass="mt-3")
 
+    
 </template>
 
 <script>
