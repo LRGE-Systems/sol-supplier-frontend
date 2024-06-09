@@ -1,0 +1,8 @@
+version: "2"
+services:
+    supplier:
+        image: thhegal/sol-cloud-supplier:latest
+        volumes: 
+            - ./secrets_supp.yml:/app/src/config/secrets.yml
+        ports:
+            - 8082:8080
